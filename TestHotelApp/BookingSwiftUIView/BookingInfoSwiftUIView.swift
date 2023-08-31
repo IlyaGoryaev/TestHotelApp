@@ -18,33 +18,20 @@ struct BookingInfoSwiftUIView: View {
             RoundedRectangle(cornerRadius: 12)
                 .fill(Color(.backGroundGray))
             VStack{
-                Spacer(minLength: 200)
-                ZStack(alignment: .center){
-                    List(lines){ line in
-                        HStack{
-                            Text(line.title)
-                                .foregroundColor(Color.gray)
-                            Spacer(minLength: 10)
-                            Text(line.titleName)
+                    ForEach(lines) { line in
+                            HStack{
+                                Text(line.title)
+                                    .foregroundColor(Color.gray)
+                                Spacer(minLength: 10)
+                                Text(line.titleName)
+                            }
+                            .frame(width: 350)
+                            .listRowSeparator(.hidden)
                         }
-                        .listRowSeparator(.hidden)
-
-                    }
-                    .listStyle(.insetGrouped)
-                    .frame(width: 430)
-                    .scrollDisabled(true)
-                    .cornerRadius(12)
                 }
             }
             
         }
-        
-        
-        
-        
-        
-        
-    }
 }
 
 struct BookingInfoSwiftUIView_Previews: PreviewProvider {

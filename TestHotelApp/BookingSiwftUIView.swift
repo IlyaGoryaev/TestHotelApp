@@ -14,7 +14,10 @@ struct BookingSiwftUIView: View {
             ScrollView{
                 
                 HotelBlock()
-                BookingInfoSwiftUIView(lines: [BookingInfoLineModel(id: "1",title: "Вылет из", titleName: "Санкт-Петербург"), BookingInfoLineModel(id: "2", title: "Страна, город", titleName: "Египет, Хургада"), BookingInfoLineModel(id: "3", title: "Даты", titleName: "19.09.2023 – 27.09.2023"), BookingInfoLineModel(id: "4", title: "Кол-во ночей", titleName: "7 ночей"), BookingInfoLineModel(id: "5", title: "Отель", titleName: "Steigenberger Makadi"), BookingInfoLineModel(id: "6", title: "Номер", titleName: "Стандартный с видом на бассейн или сад"), BookingInfoLineModel(id: "7", title: "Питание", titleName: "Все включено")])
+                HotelImageSlider(pictures:[
+                    Picture(id: "1", image: UIImage(named: "Таранто1")!),
+                    Picture(id: "2", image: UIImage(named: "Таранто2")!), Picture(id: "3", image: UIImage(named: "Таранто4")!)])
+                .frame(width: 343, height: 257)
                 BuyerInfoSwiftUIView()
             }
         }
