@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import SwiftUI
+
 
 class ViewController: UIViewController {
     
@@ -13,24 +15,13 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .red
-//        HotelPageApi.getData { result in
-//            switch result{
-//            case .success(let data):
-//                print(data.image_urls[0])
-//                HotelPageApi.getImage(url: data.image_urls[2]) { result in
-//                    switch result{
-//
-//                    case .success(let image):
-//                        self.imageView.image = image
-//                    case .failure(let error):
-//                        print(error)
-//                    }
-//                }
-//            case .failure(let error):
-//                print(error)
-//            }
-//        }
+        let controller  = UIHostingController(rootView: RoomPageSwiftUIView())
+        controller.view.frame = self.view.frame
+        
+        addChild(controller)
+        view.addSubview(controller.view)
+        controller.didMove(toParent: self)
+        
     }
 
 }

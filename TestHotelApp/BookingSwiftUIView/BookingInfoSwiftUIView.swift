@@ -10,6 +10,7 @@ import SwiftUI
 struct BookingInfoSwiftUIView: View {
     
     var lines: [BookingInfoLineModel] = []
+
     
     var body: some View {
         
@@ -17,18 +18,25 @@ struct BookingInfoSwiftUIView: View {
             Color(uiColor: .backGroundGray)
             RoundedRectangle(cornerRadius: 12)
                 .fill(Color(.backGroundGray))
-            VStack{
-                    ForEach(lines) { line in
-                            HStack{
-                                Text(line.title)
-                                    .foregroundColor(Color.gray)
-                                Spacer(minLength: 10)
-                                Text(line.titleName)
-                            }
-                            .frame(width: 350)
-                            .listRowSeparator(.hidden)
-                        }
-                }
+//            VStack{
+//                    ForEach(lines) { line in
+//                            HStack{
+//                                Text(line.title)
+//                                    .foregroundColor(Color.gray)
+//                                Spacer(minLength: 10)
+//                                Text(line.titleName)
+//                            }
+//                            .frame(width: 425)
+//                            .listRowSeparator(.hidden)
+//                        }
+//                }
+            Table(lines){
+                TableColumn("Id", value: \.id)
+                TableColumn("Title", value: \.title)
+                TableColumn("TitleName", value: \.titleName)
+            }
+            .tableStyle(.inset)
+            //.frame(width: 425)
             }
             
         }

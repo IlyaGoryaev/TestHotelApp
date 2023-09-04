@@ -5,13 +5,24 @@ struct HotelImageSlider: View {
     let pictures: [Picture]
     
     var body: some View {
-        TabView{
-            ForEach(pictures){ picture in
-                HotelPageImage(image: picture.image)
+        HStack{
+            Spacer()
+                .frame(width: 16)
+            TabView{
+                    ForEach(pictures){ picture in
+                            HotelPageImage(image: picture.image)
+                    }
+                
             }
+            .tabViewStyle(PageTabViewStyle(indexDisplayMode: .always))
+            .indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .always))
+            .font(.title)
+            .frame(height: 257)
+            Spacer()
+                .frame(width: 16)
         }
-        .tabViewStyle(PageTabViewStyle(indexDisplayMode: .always))
-        .frame(width: 425 - 32, height: 300)
+        .frame(maxWidth: .infinity)
+        
     }
 }
 

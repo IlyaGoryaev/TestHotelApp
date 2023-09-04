@@ -2,7 +2,7 @@ import Combine
 import Foundation
 
 final class HotelViewModel: ObservableObject{
-    
+        
     @Published var hotel: String = ""
     
     @Published var currentHotel = HotelModel.noHotelModel

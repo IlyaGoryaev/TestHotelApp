@@ -8,13 +8,25 @@
 import SwiftUI
 
 struct PaySwiftUIView: View {
+    
+    var applicationCoordinator: ApplicationCoordinator?
+
+    
     var body: some View {
+        
         
         
         VStack{
             HStack{
-                Image("vector-3")
-                    .offset(x: 30)
+                Spacer()
+                    .frame(width: 24)
+                Button {
+                    
+                    applicationCoordinator?.dismiss()
+                    
+                } label: {
+                    Image(uiImage: UIImage(named: "vector-3")!)
+                }
                 Spacer()
                 Text("Заказ оплачен")
                     .font(
@@ -22,6 +34,9 @@ struct PaySwiftUIView: View {
                             .weight(.medium)
                     )
                     .multilineTextAlignment(.center)
+                    .foregroundColor(.black)
+                Spacer()
+                    .frame(width: 24)
                 Spacer()
             }
             
@@ -49,16 +64,24 @@ struct PaySwiftUIView: View {
                 .font(.custom("SF Pro Display", size: 16))
                 .frame(width: 329)
             Spacer()
-            ZStack{
+            Button {
                 
-                Button("Супер!"){
-                    
+                applicationCoordinator?.openMainHotelPage()
+                
+            } label: {
+                ZStack{
+                    RoundedRectangle(cornerRadius: 15)
+                        .frame(width: 425 - 32, height: 48)
+                    Text("Супер!")
+                        .font(
+                        Font.custom("SF Pro Display", size: 16)
+                        .weight(.medium)
+                        )
+                        .kerning(0.1)
+                        .multilineTextAlignment(.center)
+                        .foregroundColor(.white)
+                        .frame(width: 425 - 32, alignment: .center)
                 }
-                .buttonStyle(.borderedProminent)
-                .frame(width: 343, height: 48)
-                .background(Color.blue)
-                .cornerRadius(15)
-                .foregroundColor(Color.white)
             }
         }
         
